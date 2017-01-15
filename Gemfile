@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# Will paginate
+gem 'will_paginate', '~> 3.1.0'
 # Normalize css
 gem 'normalize-rails', '~> 4.1', '>= 4.1.1'
 # Fontawesome

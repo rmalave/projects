@@ -1,48 +1,17 @@
-<!DOCTYPE html>
-<hmtl>
-  <head>
-    <title>Rafael Malave - Developer</title>
-  </head>
-  <body>
-    
-    <div class="wrapper wrapper_padding clearfix">
-      <div class="col-1 about homepage_content">
-        <h2>About</h2>
-        <hr>
-        <p>I'm a developer living in Seattle, Washington.</p>
-        <p>By day I work as a web developer at Freelock Computing. By night
-        I play video games, watch tv, or dump some code on Github.</p>
-      </div>
-      <div class="col-2 homepage_content">
-        <h2>Stuff I've written</h2>
-        <hr>
-        <h3><a href="#">The DO list</a></h3>
-        <p class="date">Friday April 10th</p>
-        <h3><a href="#">How do I learn "X"?</a></h3>
-        <p class="date">Friday April 10th</p>
-        <h3><a href="#">Strive for the uncomfortable</a></h3>
-        <p class="date">Friday April 10th</p>
-      </div>
-      <div class="col-2 homepage_content">
-        <h2>Stuff I've built</h2>
-        <hr>
-        <h3><a href="#">Pinterest clone</a></h3>
-        <p class="date">Friday April 10th</p>
-        <h3><a href="#">Twitter clone</a></h3>
-        <p class="date">Friday April 10th</p>
-        <h3><a href="#">Reddit clone</a></h3>
-        <p class="date">Friday April 10th</p>
-      </div>
-      
-    </div>
-    
-    <footer id="main_footer">
-      <p class="copyright">&copy; 2017 Rafael Malave</p>
-      <nav>
-        <a href="https://github.com/rmalave"><i class="fa fa-facebook"></i></a>
-        <a href="https://www.linkedin.com/in/rafaelmalave"><i class="fa fa-linkedin"></i></a>
-        <a href="https://github.com/rmalave"><i class="fa fa-github"></i></a>
-      </nav>
-    </footer>
-  </body>
-</hmtl>
+<h1 id="page_title">Stuff I've written</h1>
+<div id="posts_wrapper" class="skinny_wrapper">
+  <% @posts.each do |post| %>
+  <div class="post">
+    <p class="date"><%= post.created_at.strftime("%A, %b %d") %></p>
+    <h2><%= link_to post.title, post %></h2>
+    <hr>
+  </div>
+  <% end %>
+  
+  <div class="pagination">
+    <span class="previous_page disabled"><i class="fa fa-arrow-left"></i> Previous</span>
+    <em class="current">1</em>
+    <a rel="next" href="#">2</a>
+    <a href="#" class="next_page">Next <i class="fa fa-arrow-right"></i></a>
+  </div>
+</div>

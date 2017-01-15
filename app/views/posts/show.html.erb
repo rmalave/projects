@@ -1,9 +1,23 @@
-<%= @post.title %>
-<%= @post.content %>
-
-<br>
-<br>
-
-<%= link_to 'Edit', edit_post_path(@post) %>
-<%= link_to 'Delete', post_path(@post), method: :delete, 
-                                        data: { confirm: "Are you sure?" } %>
+<div id="post_show_content" class="skinny_wrapper wrapper_padding">
+  <header>
+    <p class="date"><%= @post.created_at.strftime("%A, %b %d") %></p>
+    <h1><%= @post.title %></h1>
+    <hr>
+  </header>
+  <div id="content">
+    <p><%= @post.content %></p>
+  </div>
+  
+  <hr>
+  
+  <div id="share_box">
+    <p>Share <%= @post.title %></p>
+    <a onclick="javascript:window.open('https://twitter.com/intent/tweet?text=<%= @post.title %> by @_rafaelmalave - &amp;url=<%= post_url(@post) %>', '_blank', 'width=800, height=500, top=200, left=300');void(0);"><i class="fa fa-twitter"></i></a>
+    <a onclick="javascript:window.open('https://facebook.com/sharer.php?u=<%= post_url(@post) %>', '_blank', 'width=800, height=500, top=200, left=300');void(0);"><i class="fa fa-facebook"></i></a>
+    <a onclick="javascript:window.open('https://plus.google.com/share?url=<%= post_url(@post) %>', '_blank', 'width=800, height=500, top=200, left=300');void(0);"><i class="fa fa-google-plus"></i></a>
+    
+  </div>
+  
+  <hr>
+  
+</div>
